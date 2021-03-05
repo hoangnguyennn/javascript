@@ -155,3 +155,14 @@ Array.prototype.pop2 = function () {
   this.length = length - 1;
   return willRemove;
 };
+
+Array.prototype.push2 = function (...elementN) {
+  const n = elementN.length;
+  let length = this.length;
+
+  for (let i = 0; i < n; i++) {
+    this[length++] = elementN[i];
+  }
+
+  return this.length;
+};
