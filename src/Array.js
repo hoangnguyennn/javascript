@@ -166,3 +166,20 @@ Array.prototype.push2 = function (...elementN) {
 
   return this.length;
 };
+
+Array.prototype.reduce2 = function (callback, initialValue) {
+  let accumulator;
+  let i = 0;
+  if (initialValue !== undefined) {
+    accumulator = initialValue;
+  } else {
+    accumulator = this[i++];
+  }
+
+  const length = this.length;
+  for (; i < length; i++) {
+    accumulator = callback(accumulator, this[i], i, this);
+  }
+
+  return accumulator;
+};
